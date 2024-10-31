@@ -1,19 +1,16 @@
-interface Event {
+type Event = {
   start_time: number;
   end_time: number;
-}
+};
 
 class Scheduler {
-  private events: Event[];
+  public events: Event[];
 
   constructor() {
     this.events = [];
   }
 
   addEvent({ start_time, end_time }: Event): boolean {
-    start_time = Number(start_time);
-    end_time = Number(end_time);
-
     // Validate input
     if (start_time >= end_time || start_time < 0 || end_time > 23) {
       return false;
@@ -34,7 +31,7 @@ class Scheduler {
   }
 
   getEvents() {
-    return [...this.events];
+    return this.events;
   }
 }
 
