@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Task Scheduler
 
-First, run the development server:
+A simple scheduling application built with Next.js, TypeScript, Tailwind CSS, ShadCN, and Zod for event validation. This app manages and displays daily events within a 24-hour period, ensuring no overlap between scheduled times.
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Add Events:** Users can add new events by specifying a start and end time.
+
+**Event Overlap Validation:** The `addEvent` method in the `Scheduler` class ensures that no two events overlap.
+
+**Retrieve Events:** Users can view all scheduled events in a clear and organized layout.
+
+**User Interface:** A visually appealing and intuitive UI designed with Tailwind CSS, displaying events in a timeline format.
+
+**Input Validation:** Input validation is implemented using Zod to prevent invalid time entries.
+## Implementation Details
+
+## Scheduler Class
+
+- **Events Storage:** The class maintains a list of events.
+
+- **Add Event:** The `addEvent` method checks for overlaps before adding a new event.
+    - If there's an overlap with an existing event, the method returns false, and the event is not added.
+    - If no overlap exists, the method returns true, and the event is successfully added.
+
+- **Get Events:** The getEvents method returns the list of all added events.
+## Deployment
+
+You can access the live version of task-scheduler app here: [Live Demo](https://task-scheduler-nu.vercel.app/)
+
+
+
+## Installation
+
+**1.** Git Clone the Repository
+
+**2.** Navigate to the directory where the repository was downloaded
+
+```
+cd task-scheduler
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**3.** Install the Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+**4.** Start the application in development mode
 
-To learn more about Next.js, take a look at the following resources:
+```
+pnpm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**5.** Access your application via port - http://localhost:3000
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Language:** TypeScript
 
-## Deploy on Vercel
+**Frontend:** Next.js, HTML, Tailwind CSS, ShadCN, Zod
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Validation:** Zod
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Component Library:** ShadCN
+
+**Deployment:** Vercel
